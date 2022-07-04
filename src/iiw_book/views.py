@@ -260,7 +260,7 @@ def webhooks(request, topic):
         request_body = {
             "connection_id": connection_id,
             "proof_request": {
-                "name": "BC Gov Verified Email",
+                "name": "CVEX Verified Email",
                 "version": "1.0.0",
                 "requested_predicates": {},
                 "requested_attributes": {

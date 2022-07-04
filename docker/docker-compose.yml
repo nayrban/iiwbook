@@ -27,7 +27,7 @@ services:
     entrypoint: /bin/bash
     command: [
         "-c",
-        "curl -d '{\"seed\":\"${AGENT_WALLET_SEED}\", \"role\":\"TRUST_ANCHOR\", \"alias\":\"CVEx Email Verifier (Docker)\"}' -X POST http://test.bcovrin.vonx.io/register; \
+        "curl -d '{\"seed\":\"${AGENT_WALLET_SEED}\", \"role\":\"TRUST_ANCHOR\", \"alias\":\"CVEX Email Verifier (Docker)\"}' -X POST http://test.bcovrin.vonx.io/register; \
         sleep 15; \
         aca-py start \
         -it http '0.0.0.0' 11000 \
@@ -36,7 +36,7 @@ services:
         --wallet-type indy \
         --seed $AGENT_WALLET_SEED \
         --genesis-url http://test.bcovrin.vonx.io/genesis \
-        --label 'BC Email Verifier' \
+        --label 'CVEX Email Verifier' \
         --auto-accept-invites \
         --auto-accept-requests \
         --admin-insecure-mode \
@@ -52,7 +52,7 @@ services:
       - iiw-book-agent
     environment:
       PORT: 8080
-      INDY_EMAIL_VERIFIER_DID: Th7MpTaRZVRYnPiabds81Y
+      INDY_EMAIL_VERIFIER_DID: 6NRZE9kocbWTHUJRkxUuQf
       SITE_URL: http://localhost:8080
       AGENT_URL: "http://iiw-book-agent:4000"
       DEBUG: "true"
