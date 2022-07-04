@@ -14,8 +14,10 @@ services:
       SITE_URL: ${SITE_URL}
       WEBHOOK_URL: "http://iiw-book-service:8080/webhooks"
       AGENT_LABEL: "IIW"
+      ACAPY_ENDPOINT: http://192.168.100.8:11000
       ACAPY_WALLET_NAME: "cvex_iiw_verifier"
       ACAPY_WALLET_KEY: "iiwwalletkey"
+      ACAPY_LOG_LEVEL: "info"
     build:
       context: ..
       dockerfile: docker/iiw-book-agent/Dockerfile
@@ -31,7 +33,6 @@ services:
         -it http '0.0.0.0' 11000 \
         -ot http \
         --admin '0.0.0.0' 4000 \
-        -e $SITE_URL \
         --wallet-type indy \
         --seed $AGENT_WALLET_SEED \
         --genesis-url http://test.bcovrin.vonx.io/genesis \
