@@ -28,7 +28,7 @@ services:
         "curl -d '{\"seed\":\"${AGENT_WALLET_SEED}\", \"role\":\"TRUST_ANCHOR\", \"alias\":\"CVEx Email Verifier (Docker)\"}' -X POST http://test.bcovrin.vonx.io/register; \
         sleep 15; \
         aca-py start \
-        -it http '0.0.0.0' 10000 \
+        -it http '0.0.0.0' 11000 \
         -ot http \
         --admin '0.0.0.0' 4000 \
         -e $SITE_URL \
@@ -80,10 +80,14 @@ services:
 
   iiw-book-postgres:
     restart: always
-    image: postgres:latest
+    image: postgres:10
     volumes:
       - /var/lib/postgresql
+    ports:
+      - "5433:5432"
     environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
 
   maildev:
